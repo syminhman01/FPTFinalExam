@@ -1,0 +1,37 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+certs/private/
+# Dependencies and build outputs
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+coverage/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+target/
+bin/
+obj/
+# Local data and diagnostics
+*.log
+*.sqlite
+*.sqlite3
+*.db
+infra/data/
+infra/backups/
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
