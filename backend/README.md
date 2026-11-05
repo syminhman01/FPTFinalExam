@@ -1,17 +1,12 @@
-# Backend
+# Backend Supabase
 
-Trạng thái: chưa chọn framework, database và chưa có API chạy được.
+Supabase cung cấp Auth/Postgres/API; không có Node server hoặc Docker cần chạy.
 
-- Framework / runtime: [CẦN ĐIỀN]
-- Database / migration tool: [CẦN ĐIỀN]
-- Xác thực và phân quyền: [CẦN ĐIỀN]
-- Lệnh chạy / test: cập nhật docs/engineering/development.md.
-- Dockerfile của backend sẽ đặt tại đây nếu cần container.
+1. Tạo Supabase project của chính bạn.
+2. Chạy database/migrations/001_study_events.sql một lần bằng SQL Editor.
+3. Chạy database/seeds/question_catalog.sql.
+4. Bật Google provider theo docs/operations/deployment.md.
 
-## Bố trí dự kiến
-- src/modules/: các module nghiệp vụ.
-- src/common/: xử lý lỗi, middleware và phần dùng chung.
-- src/config/: đọc và kiểm tra cấu hình.
-- database/migrations/: thay đổi schema có quản lý phiên bản.
-- database/seeds/: dữ liệu mẫu để phát triển.
-- tests/: kiểm tra backend.
+Migration tạo mới schema/chính sách/RPC, không xóa dữ liệu có sẵn. Seed chỉ upsert catalog công khai. Bảng events chỉ SELECT qua RLS; ghi qua RPC validation. Client không có quyền update/delete. Xóa tài khoản Auth có cascade tiến độ, chỉ làm khi chủ tài khoản yêu cầu.
+
+npm test chạy migration/seed và kiểm tra RPC/RLS bằng PGlite. Chưa thay thế kiểm tra Supabase live. Rollback lỗi ứng dụng bằng frontend trước, không drop bảng tiến độ.

@@ -35,3 +35,11 @@ infra/backups/
 Thumbs.db
 .idea/
 .vscode/
+# Local design tooling and verification captures (keep design.json/surface briefs).
+.impeccable/questions/
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/build/
+.impeccable/hook.cache.json
+.impeccable/config.local.json
+tmp/

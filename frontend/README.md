@@ -1,17 +1,11 @@
-# Frontend
+# Frontend FE Study
 
-Trạng thái: chưa chọn framework, chưa có ứng dụng chạy được.
+HTML/CSS/JavaScript thuần, esbuild đóng gói src/main.js ra dist. Chạy lệnh từ gốc; xem docs/engineering/development.md.
 
-- Framework và phiên bản: [CẦN ĐIỀN]
-- Runtime / quản lý gói: [CẦN ĐIỀN]
-- Lệnh chạy / test / build: xem docs/engineering/development.md sau khi chốt.
-- Dockerfile của frontend sẽ đặt tại đây nếu cần container.
+- src/core: nghiệp vụ và ngân hàng độc lập DOM.
+- src/views: danh sách, câu sai, lịch sử, luyện/thi/kết quả.
+- src/lib: escaping, local storage và Supabase API.
+- public/data: JSON và ảnh nguồn, không có dữ liệu cá nhân.
+- public/_headers: security/cache headers Cloudflare.
 
-## Bố trí dự kiến
-
-- src/app/: khởi động, routing, providers; điều chỉnh theo framework.
-- src/features/: giao diện và logic theo nghiệp vụ.
-- src/components/: thành phần giao diện dùng chung.
-- src/lib/: API client, tiện ích nền tảng.
-- public/: tài nguyên công khai, không chứa bí mật.
-- tests/: kiểm tra frontend; unit test cũng có thể đặt cạnh mã nguồn.
+Nội dung nguồn/tên tài khoản được escape. Ảnh mở lớn bằng link. API theo contracts/study-api.md; không chứa client secret/service_role. Chưa cấu hình cloud vẫn học local.

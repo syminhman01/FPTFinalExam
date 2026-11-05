@@ -1,20 +1,7 @@
-# Infra
+# Hạ tầng FE Study
 
-Quản lý cách chạy và triển khai frontend, backend cùng các dịch vụ phụ thuộc.
+Hosting đích: Cloudflare Pages phục vụ dist. Backend: Supabase Auth/API/Postgres được quản lý. Chưa có tài nguyên cloud do phiên này tạo.
 
-## Trạng thái
-Chưa có cấu hình chạy được vì công nghệ và môi trường triển khai chưa chốt.
-Không có compose.yaml giả để tránh hiểu nhầm hệ thống đã hoạt động.
+Không cần Docker/Compose/Kubernetes. Thông số build, cấu hình OAuth và thứ tự SQL nằm ở docs/operations/deployment.md. frontend/public/_headers được copy vào dist khi build. Cấu hình public trong .env chỉ dùng local, không commit; client secret chỉ trong Supabase provider.
 
-## Cần quyết định
-- Môi trường local / staging / production: [CẦN ĐIỀN]
-- Dịch vụ, cổng, database và nơi lưu dữ liệu: [CẦN ĐIỀN]
-- Hosting, tên miền, TLS, secret management: [CẦN ĐIỀN]
-- Healthcheck, backup và rollback: [CẦN ĐIỀN]
-
-## Sau khi chốt
-- Tạo compose.yaml nếu dùng Docker Compose.
-- Đặt Dockerfile trong frontend/ và backend/.
-- Thêm nginx/, monitoring/ hoặc terraform/ chỉ khi sử dụng.
-- Ghi lệnh chạy và dừng chính xác vào docs/engineering/development.md.
-- Ghi triển khai và khôi phục vào docs/operations/deployment.md.
+Người dùng yêu cầu tự deploy sau khi được hướng dẫn, vì vậy không có lệnh production nào được thực thi.

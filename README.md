@@ -1,35 +1,37 @@
-# Codex Project Template
+# FE Study
 
-Bộ khung dự án cá nhân của Mẫn: frontend, backend, infra và quy trình làm việc với Codex.
+Web ôn Final Exam SSG104 và SWT301: chọn đề, luyện từng câu, thi thử 50 phút, ôn câu sai và lưu tiến độ. HTML/CSS/JavaScript thuần, Supabase cho Google và đồng bộ, Cloudflare Pages cho hosting.
 
-**Phiên bản mẫu: 1.0.0.** Đây là mẫu cấu trúc và tài liệu, chưa phải ứng dụng chạy sẵn. Chưa chọn framework, database hoặc nhà cung cấp hosting.
+## Chạy trên máy
 
-## Bắt đầu
+Cần Node.js 22.16+ hoặc 24 LTS và npm. Từ thư mục gốc:
 
-1. Chọn **Use this template → Create a new repository** trên GitHub.
-2. Kiểm tra owner là tài khoản cá nhân của bạn; chọn Private nếu phù hợp.
-3. Clone repository mới về máy, mở thư mục gốc trong Codex.
-4. Thực hiện [START-HERE.md](START-HERE.md).
-5. Chỉ bắt đầu code sau khi mục tiêu, phạm vi và công nghệ cho bước đầu đã được thống nhất.
+    npm ci
+    npm run dev
+
+Mở http://localhost:4173. Chưa cấu hình Supabase vẫn luyện được; tiến độ chỉ lưu trong trình duyệt trên thiết bị hiện tại. Sau sửa code chạy npm run build rồi reload; preview chưa có hot reload.
+
+## Bộ đề
+
+30 đề, 1.126 câu từ hai ZIP gốc ở docs/plans/active: 1.107 câu được chấm, 19 câu tạm loại vì thiếu/cắt nội dung. Đáp án/giải thích giữ CSV. Xem [báo cáo ngân hàng](docs/product/question-bank-report.md).
+
+## Kiểm tra
+
+    npm test
+    npm run check
+    npm run build
+
+## Google, đồng bộ và triển khai
+
+Theo [hướng dẫn triển khai](docs/operations/deployment.md). Copy .env.example thành .env, điền Supabase URL và publishable/anon key. Không đưa Google client secret hoặc service_role vào frontend. Chủ dự án cấu hình tài khoản cloud; code không giả lập đăng nhập thành công.
 
 ## Cấu trúc
 
-| Đường dẫn | Trách nhiệm |
-| --- | --- |
-| [AGENTS.md](AGENTS.md) | Quy tắc chung và bản đồ đọc cho Codex |
-| [frontend/](frontend/README.md) | Giao diện web và tương tác người dùng |
-| [backend/](backend/README.md) | API, nghiệp vụ, phân quyền và dữ liệu |
-| [infra/](infra/README.md) | Phối hợp dịch vụ, cấu hình triển khai |
-| [contracts/](contracts/README.md) | Hợp đồng API giữa frontend và backend |
-| [docs/](docs/README.md) | Sản phẩm, kỹ thuật, kế hoạch, vận hành |
-| [tests/](tests/README.md) | Kiểm tra tích hợp toàn hệ thống |
-| [scripts/](scripts/README.md) | Lệnh hỗ trợ dự án |
-| [.agents/skills/](.agents/skills/README.md) | Chỗ bổ sung skill dự án khi có quy trình lặp lại |
+- frontend/src: UI, nghiệp vụ học và API client.
+- frontend/public/data: ngân hàng JSON và hình nguồn.
+- backend/database: migration, RLS, RPC validation và catalog công khai.
+- contracts/study-api.md: hợp đồng API đồng bộ.
+- scripts: build, preview, nhập PDF và sinh catalog.
+- tests: nghiệp vụ, sync, SQL/RLS với Postgres nhúng PGlite.
 
-## Quản lý mẫu
-
-- [CHANGELOG.md](CHANGELOG.md): lịch sử phiên bản của mẫu.
-- [TEMPLATE-VERSION](TEMPLATE-VERSION): phiên bản mẫu gốc.
-- [docs/template-maintenance.md](docs/template-maintenance.md): phát hành và cập nhật mẫu.
-- Repository tạo từ template là dự án độc lập; cập nhật mẫu không tự đồng bộ vào dự án cũ.
-- Không lưu mật khẩu, token, private key hoặc dữ liệu thật vào mẫu.
+Khởi tạo từ syminhman01/codex-project-template 1.0.0; giữ TEMPLATE-VERSION để truy vết.
