@@ -17,7 +17,7 @@ export async function buildApp() {
   await cp('frontend/public', target, { recursive: true });
   await writeFile(resolve(target, 'index.html'), await readFile('frontend/index.html'));
   await build({ entryPoints: ['frontend/src/main.js'], bundle: true, format: 'esm', target: 'es2022', minify: true, outfile: resolve(target, 'app.js'), define: { __SUPABASE_URL__: JSON.stringify(url), __SUPABASE_ANON_KEY__: JSON.stringify(key) }, legalComments: 'eof' });
-  console.log('Built dist/ — ' + (url ? 'Google sign-in configured' : 'local study; cloud not configured'));
+  console.log('Built dist/ — ' + (url ? 'Supabase connection configured; Google provider is configured separately' : 'local study; cloud not configured'));
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === resolve('scripts/build.mjs')) await buildApp();

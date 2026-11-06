@@ -1,6 +1,6 @@
 # Deploy FE Study: Google + Supabase + Cloudflare Pages
 
-Hướng dẫn để chủ dự án tự triển khai. Phiên phát triển chưa tạo project cloud, chưa deploy, chưa xác minh OAuth live. Tất cả lệnh dưới đây chạy tại gốc repository.
+Hướng dẫn để chủ dự án tự triển khai. Ngày 06/11/2026 đã nối project Supabase FPTFinalExam, áp dụng schema, nạp catalog, bật Google provider và lưu callback local; xem supabase-setup-progress.md. Với project này không chạy lại migration 001. Luồng đã tới màn chọn tài khoản Google; chưa hoàn tất xác minh đăng nhập/đồng bộ đầu cuối. Website chưa được deploy trong phiên này. Tất cả lệnh dưới đây chạy tại gốc repository.
 
 ## 1. Chuẩn bị và chạy local
 
